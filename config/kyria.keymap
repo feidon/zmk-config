@@ -81,19 +81,9 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
-            quick-tap-ms = <-1>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-		// ht: left_hand_positional_hold_tap {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "HOLD_TAP";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-unless-interrupted";
-        //     tapping-term-ms = <100>;
-        //     quick-tap-ms = <-1>;
-        //     bindings = <&kp>, <&kp>;
-        // };
     };
 
 	keymap {
