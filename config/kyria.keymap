@@ -10,11 +10,69 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define default_layer 0
+#define _DEFAULT &to default_layer
+
 #define qwertymod_layer 1
+#define _QWERMOD &to qwertymod_layer
+
 #define colemak_layer 2
+#define _COLEMAK &to default_layer
+
 #define num_sym_layer 3
+#define _NUMSYS  &mo num_sym_layer
+
 #define nav_fun_layer 4
+#define _NAVFUN  &mo nav_fun_layer 
+
 #define bt_layer 5
+#define _BTOOTH  &mo bt_layer 
+
+#define ______   &trans
+#define _PTAB    &kp LC(PG_UP)
+#define _NTAB    &kp LC(PG_DN)
+#define _NWIN    &kp LA(TAB)
+#define _PWIN    &kp LS(LA(TAB))
+#define _LR_DN   &kp LA(DOWN)
+#define _LR_UP   &kp LA(UP)
+
+#define CTL_TAB  &mt LCTRL TAB
+#define _LSFT    &kp LSHFT
+#define _LMET    &kp LMETA
+#define _SPAC    &kp SPACE
+#define _LALT    &kp LALT
+#define _RALT    &kp RALT
+#define _BSPC    &kp BSPC
+#define _RMET    &kp RMETA
+#define _COMMA   &kp COMMA
+#define _RSFT    &kp RSHFT
+#define _ENT     &kp ENTER
+#define _RCTL    &kp RCTRL
+
+#define _GRAVE   &kp GRAVE
+#define _PRCNT   &kp PRCNT 
+#define _CARET   &kp CARET
+#define _EQUAL   &kp EQUAL
+#define _MINUS   &kp MINUS
+#define _UNDER   &kp UNDER
+
+#define _LEFT    &kp LEFT
+#define _DOWN    &kp DOWN
+#define _UP      &kp UP
+#define _RGHT    &kp RIGHT
+#define _HOME    &kp HOME
+#define _END     &kp END
+#define _PGDN    &kp PG_DN
+#define _PGUP    &kp PG_UP
+
+#define _CLAN    &kp LG(SPACE)
+
+#define _BT1     &bt BT_SEL 0
+#define _BT2     &bt BT_SEL 1
+#define _BTCLR   &bt BT_CLR
+
+#define _OUTTOG &out OUT_TOG
+#define _OUTUSB &out OUT_USB
+#define _OUTBLE &out OUT_BLE
 
 / {
 	behaviors {
@@ -40,25 +98,25 @@
 //                             | nav    | meta   | alt    | space  | Enter  | qwermod|  num   | nav    | bt     |colemak |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	&kp ESC  &kp Q    &kp W    &kp E    &kp R    &kp T                                        &kp Y    &kp U    &kp I    &kp O    &kp P    &kp BSPC
-	&mt LCTRL TAB  &kp A    &kp S    &kp D    &kp F    &kp G                                        &kp H    &kp J    &kp K    &kp L    &kp SEMI &kp RCTRL
-	&kp LSHFT    &kp Z    &kp X    &kp C    &kp V    &kp B    &kp LALT    &none    &none    &kp RALT    &kp N    &kp M    &kp COMMA   &kp DOT  &kp FSLH &kp RSHFT
-	                           &mo nav_fun_layer  &kp LMETA    &kp LALT    &kp SPACE    &kp ENTER     &to qwertymod_layer &mo num_sym_layer  &mo nav_fun_layer  &mo bt_layer  &to colemak_layer
+	&kp ESC  &kp Q    &kp W    &kp E    &kp R    &kp T                                        &kp Y    &kp U    &kp I    &kp O    &kp P    _BSPC
+	CTL_TAB  &kp A    &kp S    &kp D    &kp F    &kp G                                        &kp H    &kp J    &kp K    &kp L    &kp SEMI _RCTL
+	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _LALT    &none    &none    _RALT    &kp N    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
+	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERMOD _NUMSYS  _NAVFUN  _BTOOTH  _COLEMAK
 			>;
 		};
 
 		qwertymod_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-//  | &trans |  Q     |  W     |  E     |  R     |  T     |                                   |  Y     |  U     |  I     |  O     |   P    | Enter |
-//  | &trans |  A     |  S     |  D     |  F     |  G     |                                   |  H     |  J     |  K     |  L     |   :    | ctrl  |
-//  | &trans |  Z     |  X     |  C     |  V     |  B     | &trans |  ----  |  ----  | &trans |  N     |  M     |  ,     |  .     |   /    | shft  |
-//                             | &trans | &trans | &trans | &trans | &trans | &trans | &trans | &trans | &trans | &trans |
+//  | ______ |  Q     |  W     |  E     |  R     |  T     |                                   |  Y     |  U     |  I     |  O     |   P    | Enter |
+//  | ______ |  A     |  S     |  D     |  F     |  G     |                                   |  H     |  J     |  K     |  L     |   :    | ctrl  |
+//  | ______ |  Z     |  X     |  C     |  V     |  B     | ______ |  ----  |  ----  | ______ |  N     |  M     |  ,     |  .     |   /    | shft  |
+//                             | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	&trans   &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         &trans
-	&trans   &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI &trans
-	&trans   &kp Z      &kp X      &kp C       &kp V       &kp B    &trans   &none    &none    &trans   &kp N    &kp M       &kp COMMA      &kp DOT    &kp FSLH      &trans
-							       &trans      &trans      &trans   &trans   &trans   &trans   &trans   &trans   &trans      &trans
+	______   &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         ______
+	______   &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI ______
+	______   &kp Z      &kp X      &kp C       &kp V       &kp B    ______   &none    &none    ______   &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      ______
+							       ______      ______      ______   ______   ______   ______   ______   ______   ______      ______
 			>;
 		};
 
@@ -70,37 +128,37 @@
 //                             | nav    | meta   | alt    | space  | Enter  | qwermod|  num   | nav    | bt     |default |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	&kp ESC  &kp Q    &kp W    &kp F    &kp P    &kp G                                        &kp J    &kp L    &kp U    &kp Y    &kp SEMI &kp BSPC
-	&mt LCTRL TAB  &kp A    &kp R    &kp S    &kp T    &kp D                                        &kp H    &kp N    &kp E    &kp I    &kp O    &kp RCTRL
-	&kp LSHFT    &kp Z    &kp X    &kp C    &kp V    &kp B    &kp LALT    &none    &none    &kp RALT    &kp K    &kp M    &kp COMMA   &kp DOT  &kp FSLH &kp RSHFT
-	                           &mo nav_fun_layer  &kp LMETA    &kp LALT    &kp SPACE    &kp ENTER     &to qwertymod_layer &mo num_sym_layer  &mo nav_fun_layer  &mo bt_layer  &to default_layer
+	&kp ESC  &kp Q    &kp W    &kp F    &kp P    &kp G                                        &kp J    &kp L    &kp U    &kp Y    &kp SEMI _BSPC
+	CTL_TAB  &kp A    &kp R    &kp S    &kp T    &kp D                                        &kp H    &kp N    &kp E    &kp I    &kp O    _RCTL
+	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _LALT    &none    &none    _RALT    &kp K    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
+	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERMOD _NUMSYS  _NAVFUN  _BTOOTH  _DEFAULT
 			>;
 		};
 
 		num_sym_layer {
 			bindings = <
-	&kp GRAVE   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BSLH
-	&kp LMETA(SPACE)    &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT                                       &kp CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR &trans  
-	&trans   &kp LBRC &kp RBRC &kp LBKT &kp RBKT &trans   &none    &none    &trans   &kp DQT  &kp SQT  &kp UNDER   &kp MINUS   &kp PLUS &kp EQUAL
-							   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans  
+	_GRAVE   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BSLH
+	_CLAN    &kp EXCL &kp AT   &kp HASH &kp DLLR _PRCNT                                       _CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR ______  
+	______   &kp LBRC &kp RBRC &kp LBKT &kp RBKT ______   &none    &none    ______   &kp DQT  &kp SQT  _UNDER   _MINUS   &kp PLUS _EQUAL
+							   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______  
 			>;
 		};
 
 		nav_fun_layer {
 			bindings = <
-	&trans   &kp LA(UP)   &kp HOME    &kp UP      &kp END     &kp PG_UP                                        &trans   &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL
-	&trans   &kp LA(DOWN)   &kp LEFT    &kp DOWN    &kp RIGHT    &kp PG_DN                                        &trans   &kp F5   &kp F6   &kp F7   &kp F8   &trans
-	&trans   &kp LS(LA(TAB))    &kp LA(TAB)    &kp LC(PG_UP)    &kp LC(PG_DN)    &trans   &trans   &none    &none    &trans   &trans   &kp F9   &kp F10  &kp F11  &kp F12  &trans
-				               &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans
+	______   _LR_UP   _HOME    _UP      _END     _PGUP                                        ______   &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL
+	______   _LR_DN   _LEFT    _DOWN    _RGHT    _PGDN                                        ______   &kp F5   &kp F6   &kp F7   &kp F8   ______
+	______   _PWIN    _NWIN    _PTAB    _NTAB    ______   ______   &none    &none    ______   ______   &kp F9   &kp F10  &kp F11  &kp F12  ______
+				               ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
 			>;
 		};
 
 		bt_layer {
 			bindings = <
-	&bt BT_CLR   &trans   &trans   &trans   &trans   &trans                                       &trans   &trans   &trans   &trans   &trans   &trans
-	&trans   &trans   &trans   &trans   &trans   &trans                                       &trans   &trans   &trans   &trans   &trans   &trans
-	&trans   &bt BT_SEL 0     &bt BT_SEL 1     &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans
-	                           &trans   &trans   &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans   &trans   &trans   &trans   &trans
+	_BTCLR   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
+	______   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
+	______   _BT1     _BT2     ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
+	                           ______   ______   _OUTBLE  _OUTUSB  _OUTTOG  ______   ______   ______   ______   ______
 			>;
 		};
 	};
