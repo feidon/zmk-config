@@ -85,15 +85,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-		// ht: left_hand_positional_hold_tap {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "HOLD_TAP";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-unless-interrupted";
-        //     tapping-term-ms = <100>;
-        //     quick-tap-ms = <-1>;
-        //     bindings = <&kp>, <&kp>;
-        // };
     };
 
 	keymap {
@@ -125,7 +116,7 @@
 	______   &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         ______
 	______   &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI ______
 	______   &kp Z      &kp X      &kp C       &kp V       &kp B    ______   &none    &none    ______   &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      ______
-							       ______      ______      ______   ______   ______   ______   ______   ______   ______      ______
+							       ______      ______      ______   ______   ______   _DEFAULT ______   ______   ______      ______
 			>;
 		};
 
