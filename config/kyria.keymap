@@ -16,7 +16,7 @@
 #define _QWERMOD &to qwertymod_layer
 
 #define colemak_layer 2
-#define _COLEMAK &to default_layer
+#define _COLEMAK &to colemak_layer
 
 #define num_sym_layer 3
 #define _NUMSYS  &mo num_sym_layer
