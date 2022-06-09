@@ -24,7 +24,7 @@
 
 #define nav_fun_layer 4
 #define _NAVFUN  &mo nav_fun_layer
-#define _NAVSPA  &lt num_sym_layer SPACE
+#define _NAVSPA  &lt nav_fun_layer SPACE
 
 #define bt_layer 5
 #define _BTOOTH  &mo bt_layer 
