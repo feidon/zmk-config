@@ -20,6 +20,8 @@
 
 #define num_sym_layer 3
 #define _NUMSYS  &mo num_sym_layer
+#define _NUMSPA  &lt num_sym_layer _SPAC
+#define _NUMBSPA &lt num_sym_layer _BSPC
 
 #define nav_fun_layer 4
 #define _NAVFUN  &mo nav_fun_layer 
@@ -65,6 +67,8 @@
 #define _PGUP    &kp PG_UP
 
 #define _CLAN    &kp LG(SPACE)
+#define _PIPE    &kp LS(BSLH)
+#define _TILDE   &kp LS(GRAVE)
 
 #define _BT1     &bt BT_SEL 0
 #define _BT2     &bt BT_SEL 1
@@ -82,6 +86,8 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
+			quick-tap-ms = <125>;
+    		global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
     };
@@ -102,7 +108,12 @@
 			timeout-ms = <50>;
 			key-position = <33 34>;
 			bindings = <&kp ENTER>;
-		}
+		};
+		combo_enter {
+			timeout-ms = <50>;
+			key-position = <35 36>;
+			bindings = <&kp BSPC>;
+		};
     };
 
 	keymap {
@@ -119,7 +130,7 @@
 	&kp ESC  &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         _BSPC
 	CTL_TAB  &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI _RCTL
 	_LSFT    &kp Z      &kp X      &kp C       &kp V       &kp B    _LALT    &none    &none    _RALT    &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      _RSFT
-							       _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _BTOOTH     _COLEMAK
+							       _LMET       _LALT       _NAVFUN  _NUMSPA  _ENT     _QWERTY  _NUMBSPA _NAVFUN  _BTOOTH     _COLEMAK
 			>;
 		};
 
@@ -155,27 +166,27 @@
 
 		num_sym_layer {
 			bindings = <
-	_GRAVE   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BSLH
-	_CLAN    &kp EXCL &kp AT   &kp HASH &hm LSHFT DLLR _PRCNT                                       _CARET   &hm LSHFT AMPS &kp STAR &kp LPAR &kp RPAR ______  
-	&kp CAPS &kp LBRC &kp RBRC &kp LBKT &kp RBKT ______   &none    &none    ______   &kp DQT  &kp SQT  _UNDER   _MINUS   &kp PLUS _EQUAL
+	______   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BSLH
+	______   &kp EXCL &kp AT   &kp HASH &kp DLLR _PRCNT                                       _CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR ______  
+	______   &kp LBRC &kp RBRC &kp LBKT &kp RBKT &kp DQT  ______   &none    &none    ______   &kp SQT  _UNDER   _MINUS   &kp PLUS _EQUAL   ______
 							   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______  
 			>;
 		};
 
 		nav_fun_layer {
 			bindings = <
-	______   _LR_UP   _HOME    _UP      _END     _PGUP                                        ______   &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL
-	______   _LR_DN   _LEFT    _DOWN    _RGHT    _PGDN                                        ______   &kp F5   &kp F6   &kp F7   &kp F8   ______
-	______   _PWIN    _NWIN    _PTAB    _NTAB    ______   ______   &none    &none    ______   ______   &kp F9   &kp F10  &kp F11  &kp F12  ______
-				               ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
+	______   &kp ESC  _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL  ______
+	______   _CLAN    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   ______   ______
+	______   &kp CAPS _TILDE   _GRAVE   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  ______   ______
+				               ______   ______   ______   _LALT    ______   ______   _LALT    ______   ______   ______
 			>;
 		};
 
 		bt_layer {
 			bindings = <
-	_BTCLR   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
 	______   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
-	______   _BT1     _BT2     ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
+	______   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
+	______   _BT1     _BT2     _BTCLR   ______   ______   ______   &none    &none    ______   ______   ______   ______   ______   ______   ______
 	                           ______   ______   _OUTBLE  _OUTUSB  _OUTTOG  ______   ______   ______   ______   ______
 			>;
 		};
