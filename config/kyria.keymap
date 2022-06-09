@@ -20,8 +20,8 @@
 
 #define num_sym_layer 3
 #define _NUMSYS  &mo num_sym_layer
-#define _NUMSPA  &lt num_sym_layer _SPAC
-#define _NUMBSPA &lt num_sym_layer _BSPC
+#define _NUMSPA  &lt num_sym_layer SPACE
+#define _NUMBSPA &lt num_sym_layer BSPC
 
 #define nav_fun_layer 4
 #define _NAVFUN  &mo nav_fun_layer 
