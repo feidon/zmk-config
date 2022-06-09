@@ -101,17 +101,17 @@
         };
 		combo_tab {
 			timeout-ms = <50>;
-			key-position = <27 28>;
+			key-positions = <27 28>;
 			bindings = <&kp TAB>;
 		};
 		combo_enter {
 			timeout-ms = <50>;
-			key-position = <33 34>;
+			key-positions = <33 34>;
 			bindings = <&kp ENTER>;
 		};
 		combo_enter {
 			timeout-ms = <50>;
-			key-position = <35 36>;
+			key-positions = <35 36>;
 			bindings = <&kp BSPC>;
 		};
     };
