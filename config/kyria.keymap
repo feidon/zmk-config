@@ -12,8 +12,8 @@
 #define default_layer 0
 #define _DEFAULT &to default_layer
 
-#define qwertymod_layer 1
-#define _QWERMOD &to qwertymod_layer
+#define qwerty_layer 1
+#define _QWERTY &to qwerty_layer
 
 #define colemak_layer 2
 #define _COLEMAK &to colemak_layer
@@ -80,10 +80,29 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&kp ESC>;
+        };
+		combo_tab {
+			timeout-ms = <50>;
+			key-position = <27 28>;
+			bindings = <&kp TAB>;
+		};
+		combo_enter {
+			timeout-ms = <50>;
+			key-position = <33 34>;
+			bindings = <&kp ENTER>;
+		}
     };
 
 	keymap {
@@ -94,17 +113,17 @@
 //  |  ESC   |  Q     |  W     |  E     |  R     |  T     |                                   |  Y     |  U     |  I     |  O     |   P    | Enter |
 //  | TAB/CTL|  A     |  S     |  D     |  F     |  G     |                                   |  H     |  J     |  K     |  L     |   :    | ctrl  |
 //  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  atl   |  ----  |  ----  |  alt   |  N     |  M     |  ,     |  .     |   /    | shft  |
-//                             | nav    | meta   | alt    | space  | Enter  | qwermod|  num   | nav    | bt     |colemak |
+//                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    | bt     |colemak |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	&kp ESC  &kp Q    &kp W    &kp E    &kp R    &kp T                                        &kp Y    &kp U    &kp I    &kp O    &kp P    _BSPC
-	CTL_TAB  &kp A    &kp S    &kp D    &kp F    &kp G                                        &kp H    &kp J    &kp K    &kp L    &kp SEMI _RCTL
-	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _LALT    &none    &none    _RALT    &kp N    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
-	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERMOD _NUMSYS  _NAVFUN  _BTOOTH  _COLEMAK
+	&kp ESC  &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         _BSPC
+	CTL_TAB  &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI _RCTL
+	_LSFT    &kp Z      &kp X      &kp C       &kp V       &kp B    _LALT    &none    &none    _RALT    &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      _RSFT
+							       _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _BTOOTH     _COLEMAK
 			>;
 		};
 
-		qwertymod_layer {
+		qwerty_layer {
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  | ______ |  Q     |  W     |  E     |  R     |  T     |                                   |  Y     |  U     |  I     |  O     |   P    | Enter |
 //  | ______ |  A     |  S     |  D     |  F     |  G     |                                   |  H     |  J     |  K     |  L     |   :    | ctrl  |
@@ -112,10 +131,10 @@
 //                             | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ | ______ |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	______   &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         ______
-	______   &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI ______
-	______   &kp Z      &kp X      &kp C       &kp V       &kp B    ______   &none    &none    ______   &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      ______
-							       ______      ______      ______   ______   ______   _DEFAULT ______   ______   ______      ______
+	______   &kp Q    &kp W    &kp E    &kp R    &kp T                                        &kp Y    &kp U    &kp I    &kp O    &kp P     ______
+	______   &kp A    &kp S    &kp D    &kp F    &kp G                                        &kp H    &kp J    &kp K    &kp L    &kp SEMI  ______
+	______   &kp Z    &kp X    &kp C    &kp V    &kp B    ______   &none    &none    ______   &kp N    &kp M    _COMMA   &kp DOT  &kp FSLH  ______
+							   ______   ______   ______   ______   ______   _DEFAULT ______   ______   ______   ______
 			>;
 		};
 
@@ -130,7 +149,7 @@
 	&kp ESC  &kp Q    &kp W    &kp F    &kp P    &kp G                                        &kp J    &kp L    &kp U    &kp Y    &kp SEMI _BSPC
 	CTL_TAB  &kp A    &kp R    &kp S    &kp T    &kp D                                        &kp H    &kp N    &kp E    &kp I    &kp O    _RCTL
 	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _LALT    &none    &none    _RALT    &kp K    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
-	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERMOD _NUMSYS  _NAVFUN  _BTOOTH  _DEFAULT
+	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _BTOOTH  _DEFAULT
 			>;
 		};
 
