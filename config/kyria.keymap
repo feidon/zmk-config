@@ -20,12 +20,11 @@
 
 #define num_sym_layer 3
 #define _NUMSYS  &mo num_sym_layer
-#define _NUMSPA  &lt num_sym_layer SPACE
-
+#define _NUMBSPA &lt num_sym_layer BSPC
 
 #define nav_fun_layer 4
 #define _NAVFUN  &mo nav_fun_layer
-#define _NAVBSPA &lt nav_fun_layer BSPC
+#define _NAVSPA  &lt num_sym_layer SPACE
 
 #define bt_layer 5
 #define _BTOOTH  &mo bt_layer 
@@ -131,7 +130,7 @@
 	&kp ESC  &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         _BSPC
 	CTL_TAB  &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI _RCTL
 	_LSFT    &kp Z      &kp X      &kp C       &kp V       &kp B    _LALT    &none    &none    _RALT    &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      _RSFT
-							       _LMET       _LALT       _NAVFUN  _NUMSPA  _ENT     _QWERTY  _NAVBSPA _NAVFUN  _BTOOTH     _COLEMAK
+							       _LMET       _LALT       _NAVFUN  _NAVSPA  _ENT     _QWERTY  _NUMBSPA _NAVFUN  _BTOOTH     _COLEMAK
 			>;
 		};
 
