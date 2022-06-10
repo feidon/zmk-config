@@ -20,11 +20,9 @@
 
 #define num_sym_layer 3
 #define _NUMSYS  &mo num_sym_layer
-#define _NUMBSPA &lt num_sym_layer BSPC
 
 #define nav_fun_layer 4
 #define _NAVFUN  &mo nav_fun_layer
-#define _NAVSPA  &lt nav_fun_layer SPACE
 
 #define bt_layer 5
 #define _BTOOTH  &mo bt_layer 
@@ -123,14 +121,14 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |  ESC   |  Q     |  W     |  E     |  R     |  T     |                                   |  Y     |  U     |  I     |  O     |   P    | Enter |
 //  | TAB/CTL|  A     |  S     |  D     |  F     |  G     |                                   |  H     |  J     |  K     |  L     |   :    | ctrl  |
-//  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  atl   |  ----  |  ----  |  alt   |  N     |  M     |  ,     |  .     |   /    | shft  |
-//                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    | bt     |colemak |
+//  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  bt    |  ----  |  ----  |colemak |  N     |  M     |  ,     |  .     |   /    | shft  |
+//                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    |  alt   |  meta  |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
 	&kp ESC  &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         _BSPC
 	CTL_TAB  &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI _RCTL
 	_LSFT    &kp Z      &kp X      &kp C       &kp V       &kp B    _BTOOTH  &none    &none    _COLEMAK &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      _RSFT
-							       _LMET       _LALT       _NAVFUN  _NAVSPA  _ENT     _QWERTY  _NUMBSPA _NAVFUN  _LALT       _LMET
+							       _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _LALT       _LMET
 			>;
 		};
 
@@ -144,8 +142,8 @@
 			bindings = <
 	______   &kp Q    &kp W    &kp E    &kp R    &kp T                                        &kp Y    &kp U    &kp I    &kp O    &kp P     ______
 	______   &kp A    &kp S    &kp D    &kp F    &kp G                                        &kp H    &kp J    &kp K    &kp L    &kp SEMI  ______
-	______   &kp Z    &kp X    &kp C    &kp V    &kp B    ______   &none    &none    ______   &kp N    &kp M    _COMMA   &kp DOT  &kp FSLH  ______
-							   ______   ______   ______   ______   ______   _DEFAULT ______   ______   ______   ______
+	______   &kp Z    &kp X    &kp C    &kp V    &kp B    ______   &none    &none    _DEFAULT &kp N    &kp M    _COMMA   &kp DOT  &kp FSLH  ______
+							   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
 			>;
 		};
 
@@ -153,32 +151,32 @@
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 //  |  ESC   |  Q     |  W     |  F     |  P     |  G     |                                   |  J     |  L     |  U     |  Y     |   :   | Enter |
 //  | TAB/CTL|  A     |  R     |  S     |  T     |  D     |                                   |  H     |  N     |  E     |  I     |   O   | ctrl  |
-//  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  atl   |  ----  |  ----  |  alt   |  K     |  M     |  ,     |  .     |   /   | shft  |
-//                             | nav    | meta   | alt    | space  | Enter  | qwermod|  num   | nav    | bt     |default |
+//  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  bt    |  ----  |  ----  |colemak |  K     |  M     |  ,     |  .     |   /   | shft  |
+//                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    |  alt   |  meta  |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
 	&kp ESC  &kp Q    &kp W    &kp F    &kp P    &kp G                                        &kp J    &kp L    &kp U    &kp Y    &kp SEMI _BSPC
 	CTL_TAB  &kp A    &kp R    &kp S    &kp T    &kp D                                        &kp H    &kp N    &kp E    &kp I    &kp O    _RCTL
-	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _LALT    &none    &none    _RALT    &kp K    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
-	                           _NAVFUN  _LMET    _LALT    _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _BTOOTH  _DEFAULT
+	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _BTOOTH  &none    &none    _DEFAULT &kp K    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
+	                           _LMET    _LALT    _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _LALT    _LMET
 			>;
 		};
 
 		num_sym_layer {
 			bindings = <
-	______   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp BSLH
+	______   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   ______
 	______   &kp EXCL &kp AT   &kp HASH &kp DLLR _PRCNT                                       _CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR ______  
 	______   &kp LBRC &kp RBRC &kp LBKT &kp RBKT &kp DQT  ______   &none    &none    ______   &kp SQT  _UNDER   _MINUS   &kp PLUS _EQUAL   ______
-							   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______  
+							   ______   ______   _CLAN    _BSPC    ______   ______   ______   ______   ______   ______  
 			>;
 		};
 
 		nav_fun_layer {
 			bindings = <
 	______   &kp ESC  _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL  ______
-	______   _CLAN    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   ______   ______
-	______   &kp CAPS _TILDE   _GRAVE   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  ______   ______
-				               ______   ______   ______   _LALT    ______   ______   _LALT    ______   ______   ______
+	______   CTL_TAB  _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
+	______   _LSFT    _TILDE   _GRAVE   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
+				               ______   ______   ______   _LALT    ______   ______   _LMET    ______   ______   ______
 			>;
 		};
 
