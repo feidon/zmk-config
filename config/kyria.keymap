@@ -25,8 +25,6 @@
 #define _BTOOTH  &mo bt_layer 
 
 #define ______   &trans
-#define _PTAB    &kp LC(PG_UP)
-#define _NTAB    &kp LC(PG_DN)
 #define _NWIN    &kp LA(TAB)
 #define _PWIN    &kp LS(LA(TAB))
 #define _LR_DN   &kp LA(DOWN)
@@ -61,9 +59,6 @@
 #define _END     &kp END
 #define _PGDN    &kp PG_DN
 #define _PGUP    &kp PG_UP
-
-#define _PIPE    &kp LS(BSLH)
-#define _TILDE   &kp LS(GRAVE)
 
 #define _BT1     &bt BT_SEL 0
 #define _BT2     &bt BT_SEL 1
@@ -157,7 +152,7 @@
 			bindings = <
 	______   _GRAVE   _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp BSLH ______
 	______   _LCTL    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
-	______   _LSFT    ______   ______   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
+	______   _LSFT    _LR_UP   _LR_DN   _NWIN    _PWIN    ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
 				               _LMET    _LALT    ______   ______   ______   ______   ______   ______   _RALT    _RMET
 			>;
 		};
