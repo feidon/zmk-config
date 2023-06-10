@@ -15,16 +15,13 @@
 #define qwerty_layer 1
 #define _QWERTY &to qwerty_layer
 
-#define colemak_layer 2
-#define _COLEMAK &to colemak_layer
-
-#define num_sym_layer 3
+#define num_sym_layer 2
 #define _NUMSYS  &mo num_sym_layer
 
-#define nav_fun_layer 4
+#define nav_fun_layer 3
 #define _NAVFUN  &mo nav_fun_layer
 
-#define bt_layer 5
+#define bt_layer 4
 #define _BTOOTH  &mo bt_layer 
 
 #define ______   &trans
@@ -36,6 +33,7 @@
 #define _LR_UP   &kp LA(UP)
 
 #define CTL_TAB  &mt LCTRL TAB
+#define _LCTL    &kp LCTRL
 #define _LSFT    &kp LSHFT
 #define _LMET    &kp LMETA
 #define _SPAC    &kp SPACE
@@ -64,7 +62,6 @@
 #define _PGDN    &kp PG_DN
 #define _PGUP    &kp PG_UP
 
-#define _CLAN    &kp LG(SPACE)
 #define _PIPE    &kp LS(BSLH)
 #define _TILDE   &kp LS(GRAVE)
 
@@ -125,10 +122,10 @@
 //                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    |  alt   |  meta  |
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 			bindings = <
-	&kp ESC  &kp Q      &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P         _BSPC
-	CTL_TAB  &hm LALT A &hm LGUI S &hm LCTRL D &hm LSHFT F &kp G                                        &kp H    &hm LSHFT J &hm LCTRL K &hm LGUI L &hm LALT SEMI _RCTL
-	_LSFT    &kp Z      &kp X      &kp C       &kp V       &kp B    _BTOOTH  &none    &none    _COLEMAK &kp N    &kp M       _COMMA      &kp DOT    &kp FSLH      _RSFT
-							       _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _LALT       _LMET
+	&kp ESC  &kp Q       &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P          &kp DEL
+	CTL_TAB  &hm LCTRL A &hm LGUI S &hm LALT D  &kp F       &kp G                                        &kp H    &kp J       &hm RALT K  &hm RGUI L &hm RCTRL SEMI _RCTL
+	_LSFT    &hm LSHFT Z &kp X      &kp C       &kp V       &kp B    _BTOOTH  &none    &none    _QWERTY  &kp N    &kp M       _COMMA      &kp DOT    &hm RSHFT FSLH _RSFT
+							        _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _BSPC    _NUMSYS  _NAVFUN  _RALT       _RMET
 			>;
 		};
 
@@ -147,45 +144,29 @@
 			>;
 		};
 
-		colemak_layer {
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-//  |  ESC   |  Q     |  W     |  F     |  P     |  G     |                                   |  J     |  L     |  U     |  Y     |   :   | Enter |
-//  | TAB/CTL|  A     |  R     |  S     |  T     |  D     |                                   |  H     |  N     |  E     |  I     |   O   | ctrl  |
-//  | SHIFT  |  Z     |  X     |  C     |  V     |  B     |  bt    |  ----  |  ----  |colemak |  K     |  M     |  ,     |  .     |   /   | shft  |
-//                             |  meta  |  alt   |  nav   | space  | Enter  | qwermod|  num   | nav    |  alt   |  meta  |
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-			bindings = <
-	&kp ESC  &kp Q    &kp W    &kp F    &kp P    &kp G                                        &kp J    &kp L    &kp U    &kp Y    &kp SEMI _BSPC
-	CTL_TAB  &kp A    &kp R    &kp S    &kp T    &kp D                                        &kp H    &kp N    &kp E    &kp I    &kp O    _RCTL
-	_LSFT    &kp Z    &kp X    &kp C    &kp V    &kp B    _BTOOTH  &none    &none    _DEFAULT &kp K    &kp M    _COMMA   &kp DOT  &kp FSLH _RSFT
-	                           _LMET    _LALT    _NAVFUN  _SPAC    _ENT     _QWERTY  _NUMSYS  _NAVFUN  _LALT    _LMET
-			>;
-		};
-
 		num_sym_layer {
 			bindings = <
 	______   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   ______
 	______   &kp EXCL &kp AT   &kp HASH &kp DLLR _PRCNT                                       _CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR ______  
 	______   &kp LBRC &kp RBRC &kp LBKT &kp RBKT &kp DQT  ______   &none    &none    ______   &kp SQT  _UNDER   _MINUS   &kp PLUS _EQUAL   ______
-							   ______   ______   _CLAN    _BSPC    ______   ______   ______   ______   ______   ______  
+							   ______   ______   ______   ______   ______   ______   ______   ______   ______   ______ 
 			>;
 		};
 
 		nav_fun_layer {
 			bindings = <
-	______   &kp ESC  _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp DEL  ______
-	______   CTL_TAB  _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
-	______   _LSFT    _TILDE   _GRAVE   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
-				               ______   ______   ______   _LALT    ______   ______   _LMET    ______   ______   ______
-			>;
+	______   _GRAVE   _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp BSLH ______
+	______   _LCTL    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
+	______   _LSFT    ______   ______   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
+				               _LMET    _LALT    ______   ______   ______   ______   ______   ______   _RALT    _RMET
 		};
 
 		bt_layer {
 			bindings = <
-	______   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
-	______   ______   ______   ______   ______   ______                                       ______   ______   ______   ______   ______   ______
-	______   _BT1     _BT2     _BTCLR   ______   ______   ______   &none    &none    ______   ______   ______   ______   ______   ______   ______
-	                           ______   ______   _OUTBLE  _OUTUSB  _OUTTOG  ______   ______   ______   ______   ______
+	_BTCLR   _BT1     _BT2     ______   ______   ______                                       ______   ______   ______   ______   ______   ______
+	_OUTTOG  _OUTBLE  _OUTUSB  ______   ______   ______                                       ______   ______   ______   ______   ______   ______
+	______   ______   ______   ______   ______   ______   ______   &none    &none    ______   ______   ______   ______   ______   ______   ______
+	                           ______   ______   ______   ______   ______   ______   ______   ______   ______   ______
 			>;
 		};
 	};
