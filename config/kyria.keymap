@@ -159,6 +159,7 @@
 	______   _LCTL    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
 	______   _LSFT    ______   ______   _PIPE    &kp BSLH ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
 				               _LMET    _LALT    ______   ______   ______   ______   ______   ______   _RALT    _RMET
+			>;
 		};
 
 		bt_layer {
