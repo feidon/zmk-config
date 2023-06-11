@@ -120,7 +120,7 @@
 	&kp ESC  &kp Q       &kp W      &kp E       &kp R       &kp T                                        &kp Y    &kp U       &kp I       &kp O      &kp P          &kp DEL
 	CTL_TAB  &hm LCTRL A &hm LGUI S &hm LALT D  &kp F       &kp G                                        &kp H    &kp J       &hm RALT K  &hm RGUI L &hm RCTRL SEMI _RCTL
 	_LSFT    &hm LSHFT Z &kp X      &kp C       &kp V       &kp B    _BTOOTH  &none    &none    _QWERTY  &kp N    &kp M       _COMMA      &kp DOT    &hm RSHFT FSLH _RSFT
-							        _LMET       _LALT       _NAVFUN  _SPAC    _ENT     _BSPC    _NUMSYS  _NAVFUN  _RALT       _RMET
+							        _LMET       _LALT       _NAVFUN  _SPAC    _ENT     &kp BSLH _NUMSYS  _NAVFUN  _RALT       _RMET
 			>;
 		};
 
@@ -150,7 +150,7 @@
 
 		nav_fun_layer {
 			bindings = <
-	______   _GRAVE   _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   &kp BSLH ______
+	______   _GRAVE   _HOME    _UP      _END     _PGUP                                        &kp F1   &kp F2   &kp F3   &kp F4   _BSPC    ______
 	______   _LCTL    _LEFT    _DOWN    _RGHT    _PGDN                                        &kp F5   &kp F6   &kp F7   &kp F8   _RCTL    ______
 	______   _LSFT    _LR_UP   _LR_DN   _NWIN    _PWIN    ______   &none    &none    ______   &kp F9   &kp F10  &kp F11  &kp F12  _RSFT    ______
 				               _LMET    _LALT    ______   ______   ______   ______   ______   ______   _RALT    _RMET
